@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0A1628"/>
+  <circle cx="10" cy="10" r="1.5" fill="#E8952E" opacity="0.4"/>
+  <circle cx="22" cy="8" r="1" fill="#E8952E" opacity="0.3"/>
+  <line x1="10" y1="10" x2="22" y2="8" stroke="#E8952E" stroke-width="0.5" opacity="0.2"/>
+  <text x="16" y="22" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" fill="#E8952E">DS</text>
+</svg>
