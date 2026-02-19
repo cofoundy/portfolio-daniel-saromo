@@ -1,0 +1,211 @@
+% Harvard-Format Professional CV — Daniel Saromo-Mori
+% Compile with: xelatex cv-saromo.tex
+% Premium tier: 2-page CV allowed
+
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[margin=0.6in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage{fontspec}
+\usepackage{fontawesome5}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{tabularx}
+
+% --- Fonts (macOS system fonts) ---
+\setmainfont{Times New Roman}
+\setsansfont{Helvetica Neue}
+
+% --- Colors (subtle, Harvard-appropriate) ---
+\definecolor{headrule}{HTML}{2c3e50}
+\definecolor{linkblue}{HTML}{1a5276}
+
+% --- Hyperlinks ---
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue, pdfborder={0 0 0}}
+
+% --- Section Formatting (Harvard style: centered, bold, with rules) ---
+\titleformat{\section}
+  {\large\bfseries\centering}
+  {}
+  {0em}
+  {\vspace{-0.4em}\hrulefill\quad}[\quad\hrulefill\vspace{-0.4em}]
+\titlespacing{\section}{0pt}{0.6em}{0.3em}
+
+% --- List Formatting (tight bullets) ---
+\setlist[itemize]{nosep, left=0pt, label=\textbullet, itemsep=1pt, topsep=2pt}
+
+% --- No page numbers ---
+\pagestyle{empty}
+
+% --- Custom Commands ---
+\newcommand{\entry}[4]{%
+  \noindent\textbf{#1} \hfill #2 \par\nopagebreak
+  \textit{#3} \hfill \textit{#4} \par\nopagebreak
+}
+
+\begin{document}
+
+% ============================================
+% HEADER
+% ============================================
+\begin{center}
+  {\LARGE\bfseries Daniel Saromo-Mori} \\[4pt]
+  \faIcon{map-marker-alt}\enspace Prague, Czechia
+  \quad\faIcon{envelope}\enspace \href{mailto:danielsaromo@gmail.com}{danielsaromo@gmail.com}
+  \\[2pt]
+  \faIcon{linkedin}\enspace \href{https://linkedin.com/in/danielsaromo}{linkedin.com/in/danielsaromo}
+  \quad\faIcon{github}\enspace \href{https://github.com/DanielSaromo}{DanielSaromo}
+  \quad\faIcon{globe}\enspace \href{https://danielsaromo.xyz}{danielsaromo.xyz}
+  \quad\faIcon{graduation-cap}\enspace \href{https://scholar.google.com/citations?user=ym6OfSgAAAAJ}{Google Scholar}
+\end{center}
+
+\vspace{-0.4em}
+\noindent\rule{\textwidth}{0.8pt}
+\vspace{-0.8em}
+
+% ============================================
+% EDUCATION
+% ============================================
+\section{Education}
+
+\entry{Czech Technical University in Prague}{Prague, Czechia}{M.Sc. Cybernetics and Robotics, AI Specialization --- Currently Enrolled}{Sep 2024 -- Present}
+\begin{itemize}
+  \item Awarded merit scholarship for excellent study results in the Winter Semester of Academic Year 2024/2025
+  \item Ranked 1st in Czechia in QS Engineering Ranking 2025
+\end{itemize}
+\vspace{0.3em}
+
+\entry{Politecnico di Milano}{Milan, Italy}{M.Sc. Automation and Control Engineering --- Weighted Mark: 25.6/30}{Sep 2022 -- Feb 2024}
+\begin{itemize}
+  \item Completed coursework at institution ranked 13th in the world (QS Engineering 2022)
+  \item Secured 1st place at Pitch Competition 2023 organized by Entrepreneurship Club POLIMI
+\end{itemize}
+\vspace{0.3em}
+
+\entry{Pontificia Universidad Cat\'{o}lica del Per\'{u} (PUCP)}{Lima, Peru}{B.Sc. Mechatronics Engineering \& Professional Degree}{Mar 2014 -- Nov 2020}
+\begin{itemize}
+  \item Graduated in the top 6.66\% of the Faculty of Science and Engineering (6th of 32 mechatronics graduates)
+  \item Thesis: ``Intelligent spider robot for detecting anti-personnel metallic landmines in uneven terrain''
+  \item Earned Best Bachelor's Thesis award and Innovation Recognition Award at IMECE 2019 (world finals)
+  \item Received Extraordinary Support Funding for Undergraduate Research Thesis; thesis rated outstanding unanimously
+\end{itemize}
+\vspace{0.3em}
+
+% ============================================
+% PUBLICATIONS
+% ============================================
+\section{Scientific Publications --- 200+ Citations (Google Scholar)}
+
+\noindent\textbf{[C4]} Valdenegro-Toro, M. and \textbf{Saromo, D.} ``A Deeper Look into Aleatoric and Epistemic Uncertainty Disentanglement,'' \textit{LXCV Workshop at CVPR 2022}. New Orleans, USA. \textbf{200 citations.} Selected for oral presentation.\par\vspace{3pt}
+
+\noindent\textbf{[C3]} Bravo, L., \textbf{Saromo, D.}, and Villota, E. ``Smart Insole Sensor for vGRF Measurement,'' \textit{9th International Symposium on Sensor Science}. Warsaw, Poland. 2022.\par\vspace{3pt}
+
+\noindent\textbf{[C2]} \textbf{Saromo, D.}, Bravo, L., and Villota, E. ``Smart Sensor Calibration with Auto-Rotating Perceptrons,'' \textit{LXAI Workshop at ICML 2020}. Vienna, Austria. Selected for oral presentation.\par\vspace{3pt}
+
+\noindent\textbf{[C1]} \textbf{Saromo, D.}, Villota, E., and Villanueva, E. ``Auto-Rotating Perceptrons,'' \textit{LXAI Workshop at NeurIPS 2019}. Vancouver, Canada. Selected for oral presentation.\par\vspace{3pt}
+
+\noindent\textbf{[T1]} \textbf{Saromo, D.} ``Intelligent spider robot for detecting anti-personnel metallic landmines in uneven terrain,'' \textit{Pontificia Universidad Cat\'{o}lica del Per\'{u}}. Lima, Peru. 2020.\par\vspace{3pt}
+
+\noindent\textbf{[Under Review]} ``Auto-Rotating Neural Networks: An Alternative Approach for Preventing Vanishing Gradients,'' \textit{Transactions on Machine Learning Research (TMLR)}.\par
+\vspace{0.3em}
+
+% ============================================
+% RESEARCH EXPERIENCE
+% ============================================
+\section{Professional \& Research Experience}
+
+\entry{Siemens}{Prague, Czechia}{Application Engineer, IT/OT Integration (Working Student)}{Aug 2025 -- Present}
+\begin{itemize}
+  \item Deliver IT/OT integration solutions at Siemens while concurrently pursuing M.Sc. in Cybernetics and Robotics at CTU Prague
+\end{itemize}
+\vspace{0.3em}
+
+\entry{German Research Center for Artificial Intelligence (DFKI)}{Bremen, Germany (Remote)}{Guest Researcher}{Aug 2020 -- Dec 2020}
+\begin{itemize}
+  \item Extended the Auto-Rotating Perceptron (ARP) concept into a new neural network family (ARNN), implementing dense, recurrent, LSTM, GRU, and convolutional auto-rotating layers
+  \item Validated ARNN performance against equivalent baseline models using the center's GPU clusters, presenting results at the Online Asian Machine Learning School (OAMLS) at ACML 2021
+  \item Collaborated with research advisor Dr. Matias Valdenegro-Toro on architecture design and experimental methodology
+\end{itemize}
+\vspace{0.3em}
+
+\entry{PUCP Applied Robotics and Biomechanics Research Group (GIRAB)}{Lima, Peru}{Research Assistant}{Mar 2020 -- Jul 2020}
+\begin{itemize}
+  \item Applied Auto-Rotating Perceptrons to wearable force sensor calibration, achieving 15x improvement in neural network performance (lower loss) compared to standard architectures
+  \item Co-authored peer-reviewed paper presented at ICML 2020 under the guidance of research advisor Dr. Elizabeth Villota
+\end{itemize}
+\vspace{0.3em}
+
+% ============================================
+% TEACHING EXPERIENCE
+% ============================================
+\section{Teaching Experience}
+
+\entry{PUCP Continuing Education Department}{Lima, Peru}{Lecturer --- Specialization Diplomas}{Sep 2019 -- Present}
+\begin{itemize}
+  \item Instructed AI for Games across 12 consecutive semesters (2019-2 through 2025-1), training 300+ professionals in applied AI techniques
+  \item Taught Data Analysis Methods for Time Series in the Diploma in Data Analytics program (2022-1)
+\end{itemize}
+\vspace{0.3em}
+
+\entry{PUCP Center for Advanced Manufacturing Technologies (CETAM)}{Lima, Peru}{Lecturer}{Sep 2020 -- Sep 2023}
+\begin{itemize}
+  \item Delivered ML for Industry across 7 semesters and Python for Data Science across 5 semesters, equipping manufacturing professionals with applied AI and data science capabilities
+\end{itemize}
+\vspace{0.3em}
+
+\entry{National Meteorological and Hydrological Services (SENAMHI)}{Lima, Peru}{Lecturer --- Peruvian Government Entity}{May 2022 -- Jun 2022}
+\begin{itemize}
+  \item Designed and delivered introductory AI and ML curriculum for government meteorological professionals
+\end{itemize}
+\vspace{0.3em}
+
+\entry{PUCP Undergraduate School}{Lima, Peru}{Teaching Assistant --- Faculty of Science and Engineering}{Mar 2019 -- Dec 2019}
+\begin{itemize}
+  \item Supported instruction in AI (2019-1), Machine Learning (2019-2), and Computer Science Applications (2019-2)
+\end{itemize}
+\vspace{0.3em}
+
+% ============================================
+% HONORS & AWARDS
+% ============================================
+\section{Honors \& Awards}
+
+\begin{itemize}
+  \item \textbf{Merit Scholarship}, Czech Technical University in Prague --- excellent study results (2024)
+  \item \textbf{1st Place}, Pitch Competition 2023, Entrepreneurship Club POLIMI, Milan, Italy (2023)
+  \item \textbf{LXAI Travel Grant} (\$1,860), NeurIPS 2019 --- oral and poster presenter, Vancouver, Canada (2019)
+  \item \textbf{Innovation Recognition Award} (\$250), Old Guard 63rd Annual Oral Competition, World Finals at IMECE, Utah, USA (2019)
+  \item \textbf{ASME Travel Award} (\$1,500), representing PUCP and South America at ASME IMECE, Utah, USA (2019)
+  \item \textbf{1st Place + Technical Award} (\$850), Old Guard Oral Presentation Competition, ASME E-FEST South America, Lima (2019)
+\end{itemize}
+\vspace{0.3em}
+
+% ============================================
+% TALKS & PRESENTATIONS
+% ============================================
+\section{Talks \& Presentations --- 6 Countries}
+
+\begin{itemize}
+  \item \textbf{Oct 2024}: Auto-Rotating Neural Networks pitch, Dny AI series, \textit{Prague, Czechia}
+  \item \textbf{Jun 2022}: Uncertainty Disentanglement paper, LXCV Workshop at CVPR, \textit{New Orleans, USA}
+  \item \textbf{Nov 2021}: ARNN poster, Online Asian Machine Learning School at ACML, \textit{Singapore}
+  \item \textbf{Jul 2020}: ARP sensor calibration paper, LXAI Workshop at ICML, \textit{Vienna, Austria}
+  \item \textbf{Dec 2019}: Auto-Rotating Perceptrons paper, LXAI Workshop at NeurIPS, \textit{Vancouver, Canada}
+\end{itemize}
+\vspace{0.3em}
+
+% ============================================
+% SKILLS
+% ============================================
+\section{Skills \& Additional}
+
+\begin{tabularx}{\textwidth}{@{}p{1.3in} X@{}}
+\textbf{AI/ML:} & PyTorch, TensorFlow, Keras, Scikit-Learn, OpenCV, OpenAI Gym; Deep Learning (MLP, CNN, ARNN/ARP, DRL), Computer Vision, Transfer Learning \\[2pt]
+\textbf{Robotics:} & ROS-1, Jetson Nano, Embedded Systems (Arduino, Raspberry Pi); TIA Portal (PLC/HMI), LabView \\[2pt]
+\textbf{Programming:} & Python, MicroPython, C, C++, MATLAB, VBA, \LaTeX{}; NumPy, Pandas, Matplotlib, Plotly, Git, Linux \\[2pt]
+\textbf{CAD/CAE:} & SolidWorks, Inventor, AutoCAD, EagleCAD, Altium Designer \\[2pt]
+\textbf{Languages:} & Spanish (native), English (proficient), Italian (advanced), French (elementary) \\
+\end{tabularx}
+
+\end{document}

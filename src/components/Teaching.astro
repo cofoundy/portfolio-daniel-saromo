@@ -1,0 +1,48 @@
+---
+import { siteConfig } from "../config";
+const { teaching } = siteConfig;
+---
+
+<section id="teaching" class="py-20 md:py-28 bg-[var(--color-primary-dark)]">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div>
+        <p class="font-mono text-xs tracking-widest text-[var(--color-accent)] uppercase mb-2">Sharing knowledge</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Teaching</h2>
+        <div class="section-divider mt-3"></div>
+      </div>
+      <div class="flex items-baseline gap-2">
+        <span class="font-mono text-3xl md:text-4xl font-bold text-[var(--color-accent)]">{teaching.totalYears}</span>
+        <span class="text-sm text-slate-400">Years</span>
+        <span class="mx-2 text-slate-600">|</span>
+        <span class="font-mono text-3xl md:text-4xl font-bold text-[var(--color-accent)]">{teaching.totalSemesters}</span>
+        <span class="text-sm text-slate-400">Semesters</span>
+      </div>
+    </div>
+
+    <!-- Course grid -->
+    <div class="mt-10 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+      {teaching.courses.map((course, i) => (
+        <div class={`reveal stagger-${i + 1} bg-[var(--color-primary)]/60 border border-[var(--color-primary-light)]/20 rounded-xl p-5 card-hover text-center`}>
+          <div class="font-mono text-3xl font-bold text-[var(--color-accent)]">{course.semesters}</div>
+          <div class="text-xs text-slate-500 mt-1">semesters</div>
+          <h3 class="text-sm font-semibold text-white mt-3 leading-tight">{course.name}</h3>
+          <p class="text-xs text-slate-500 mt-1">{course.institution}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Government + TA -->
+    <div class="reveal mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 text-sm text-slate-400">
+      <span class="font-mono text-xs text-[var(--color-accent)] uppercase tracking-widest">Also:</span>
+      <div class="flex flex-wrap gap-2">
+        {teaching.government.map((g) => (
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[var(--color-primary-light)]/20 border border-[var(--color-primary-light)]/15 text-xs text-slate-400">
+            {g.name} <span class="text-slate-600">({g.role}, {g.year})</span>
+          </span>
+        ))}
+      </div>
+    </div>
+    <p class="reveal mt-3 text-xs text-slate-500 pl-0 sm:pl-16">{teaching.ta}</p>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+---
+import { siteConfig } from "../config";
+const { publications } = siteConfig;
+
+const venueColors: Record<string, string> = {
+  "NeurIPS": "bg-purple-900/60 text-purple-300 border-purple-700/40",
+  "ICML": "bg-blue-900/60 text-blue-300 border-blue-700/40",
+  "CVPR": "bg-emerald-900/60 text-emerald-300 border-emerald-700/40",
+  "Sensor Science": "bg-cyan-900/60 text-cyan-300 border-cyan-700/40",
+  "PUCP Thesis": "bg-amber-900/60 text-amber-300 border-amber-700/40",
+};
+---
+
+<section id="publications" class="py-20 md:py-28 bg-[var(--color-surface)]">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div>
+        <p class="font-mono text-xs tracking-widest text-[var(--color-accent)] uppercase mb-2">Academic output</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">Publications</h2>
+        <div class="section-divider mt-3"></div>
+      </div>
+      <div class="flex items-baseline gap-2">
+        <span class="font-mono text-3xl md:text-4xl font-bold text-[var(--color-accent)]">200+</span>
+        <span class="text-sm text-[var(--color-primary)]">Citations</span>
+      </div>
+    </div>
+
+    <div class="mt-10 grid md:grid-cols-2 gap-5">
+      {publications.map((pub, i) => (
+        <div class={`reveal stagger-${Math.min(i + 1, 6)} card-hover bg-white rounded-xl p-5 border border-slate-200`}>
+          <!-- Venue badge -->
+          <div class="flex items-center justify-between mb-3">
+            <span class={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-mono font-semibold border ${venueColors[pub.venue] || 'bg-slate-800/60 text-slate-300 border-slate-600/40'}`}>
+              {pub.venue} {pub.year}
+            </span>
+            {pub.citations > 0 && (
+              <span class="font-mono text-xs text-slate-500">
+                {pub.citations} cites
+              </span>
+            )}
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-sm font-semibold text-[var(--color-primary-dark)] leading-snug">
+            {pub.link ? (
+              <a href={pub.link} target="_blank" rel="noopener" class="hover:text-[var(--color-accent)] transition-colors">
+                {pub.title}
+              </a>
+            ) : (
+              pub.title
+            )}
+          </h3>
+
+          <!-- Type + City -->
+          <div class="mt-2 flex items-center gap-2 text-xs text-slate-500">
+            <span>{pub.type}</span>
+            <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+            <span>{pub.city}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Scholar link -->
+    <div class="reveal mt-8 text-center">
+      <a
+        href={siteConfig.social.scholar}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 text-sm text-[var(--color-accent)] hover:underline font-mono"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
+        View on Google Scholar
+      </a>
+    </div>
+  </div>
+</section>

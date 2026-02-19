@@ -1,0 +1,67 @@
+---
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Invention from "../components/Invention.astro";
+import Journey from "../components/Journey.astro";
+import Publications from "../components/Publications.astro";
+import Teaching from "../components/Teaching.astro";
+import Awards from "../components/Awards.astro";
+import Contact from "../components/Contact.astro";
+import { siteConfig } from "../config";
+import "../styles/global.css";
+---
+
+<html lang="en" style={`--color-primary-dark:${siteConfig.colors.primaryDark};--color-primary:${siteConfig.colors.primary};--color-primary-light:${siteConfig.colors.primaryLight};--color-accent:${siteConfig.colors.accent};--color-surface:${siteConfig.colors.surface};--color-surface-light:${siteConfig.colors.surfaceLight}`}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={siteConfig.description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${siteConfig.name} — ${siteConfig.title}`} />
+    <meta property="og:description" content={siteConfig.description} />
+    <meta property="og:type" content="website" />
+
+    <!-- Fonts: Space Grotesk (headings) + Inter (body) + JetBrains Mono (code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{siteConfig.name} — {siteConfig.title}</title>
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <Hero />
+      <Invention />
+      <Journey />
+      <Publications />
+      <Teaching />
+      <Awards />
+      <Contact />
+    </main>
+
+    <!-- Scroll Reveal -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: '0px 0px -8% 0px', threshold: 0.1 }
+      );
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+---
+import { siteConfig } from "../config";
+const { invention } = siteConfig;
+---
+
+<section id="invention" class="py-20 md:py-28 bg-[var(--color-surface)]">
+  <div class="max-w-5xl mx-auto px-6">
+    <!-- Section header -->
+    <div class="reveal">
+      <p class="font-mono text-xs tracking-widest text-[var(--color-accent)] uppercase mb-2">What makes him unique</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)]">{invention.title}</h2>
+      <div class="section-divider mt-3"></div>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+      <!-- Left: SVG Diagram -->
+      <div class="reveal-left">
+        <div class="relative bg-[var(--color-primary-dark)] rounded-2xl p-8 md:p-10 overflow-hidden">
+          <!-- Neural network visualization -->
+          <svg viewBox="0 0 300 200" class="w-full" xmlns="http://www.w3.org/2000/svg" aria-label="ARNN concept diagram">
+            <!-- Input layer -->
+            <circle cx="50" cy="50" r="12" fill="none" stroke="#E8952E" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="50" cy="100" r="12" fill="none" stroke="#E8952E" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="50" cy="150" r="12" fill="none" stroke="#E8952E" stroke-width="1.5" opacity="0.6"/>
+            <text x="50" y="54" text-anchor="middle" fill="#E8952E" font-size="8" font-family="JetBrains Mono, monospace">x₁</text>
+            <text x="50" y="104" text-anchor="middle" fill="#E8952E" font-size="8" font-family="JetBrains Mono, monospace">x₂</text>
+            <text x="50" y="154" text-anchor="middle" fill="#E8952E" font-size="8" font-family="JetBrains Mono, monospace">x₃</text>
+
+            <!-- ARP layer (rotating) -->
+            <g class="arp-neuron">
+              <circle cx="150" cy="70" r="16" fill="none" stroke="#E8952E" stroke-width="2" opacity="0.8"/>
+              <path d="M 140 70 A 10 10 0 0 1 160 70" fill="none" stroke="#E8952E" stroke-width="1.5" class="arp-rotate" opacity="0.9"/>
+              <text x="150" y="74" text-anchor="middle" fill="#E8952E" font-size="7" font-family="JetBrains Mono, monospace" font-weight="bold">ARP</text>
+            </g>
+            <g class="arp-neuron">
+              <circle cx="150" cy="130" r="16" fill="none" stroke="#E8952E" stroke-width="2" opacity="0.8"/>
+              <path d="M 140 130 A 10 10 0 0 1 160 130" fill="none" stroke="#E8952E" stroke-width="1.5" class="arp-rotate" opacity="0.9"/>
+              <text x="150" y="134" text-anchor="middle" fill="#E8952E" font-size="7" font-family="JetBrains Mono, monospace" font-weight="bold">ARP</text>
+            </g>
+
+            <!-- Output layer -->
+            <circle cx="250" cy="100" r="14" fill="none" stroke="#E8952E" stroke-width="1.5" opacity="0.6"/>
+            <text x="250" y="104" text-anchor="middle" fill="#E8952E" font-size="8" font-family="JetBrains Mono, monospace">ŷ</text>
+
+            <!-- Connections input → ARP -->
+            <line x1="62" y1="50" x2="134" y2="70" stroke="#E8952E" stroke-width="0.7" opacity="0.2"/>
+            <line x1="62" y1="100" x2="134" y2="70" stroke="#E8952E" stroke-width="0.7" opacity="0.2"/>
+            <line x1="62" y1="150" x2="134" y2="70" stroke="#E8952E" stroke-width="0.7" opacity="0.15"/>
+            <line x1="62" y1="50" x2="134" y2="130" stroke="#E8952E" stroke-width="0.7" opacity="0.15"/>
+            <line x1="62" y1="100" x2="134" y2="130" stroke="#E8952E" stroke-width="0.7" opacity="0.2"/>
+            <line x1="62" y1="150" x2="134" y2="130" stroke="#E8952E" stroke-width="0.7" opacity="0.2"/>
+
+            <!-- Connections ARP → output -->
+            <line x1="166" y1="70" x2="236" y2="100" stroke="#E8952E" stroke-width="0.7" opacity="0.25"/>
+            <line x1="166" y1="130" x2="236" y2="100" stroke="#E8952E" stroke-width="0.7" opacity="0.25"/>
+
+            <!-- Labels -->
+            <text x="50" y="185" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="Inter, sans-serif">Input</text>
+            <text x="150" y="185" text-anchor="middle" fill="#E8952E" font-size="7" font-family="Inter, sans-serif" font-weight="600">Auto-Rotating</text>
+            <text x="250" y="185" text-anchor="middle" fill="#94a3b8" font-size="7" font-family="Inter, sans-serif">Output</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Text -->
+      <div class="reveal-right">
+        <h3 class="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)]">
+          {invention.subtitle}
+        </h3>
+        <p class="mt-2 font-mono text-sm text-[var(--color-accent)] italic">
+          "{invention.question}"
+        </p>
+        <p class="mt-4 text-[var(--color-primary)] leading-relaxed">
+          {invention.description}
+        </p>
+
+        <!-- Highlights -->
+        <ul class="mt-6 space-y-2">
+          {invention.highlights.map((h) => (
+            <li class="flex items-start gap-2 text-sm text-[var(--color-primary)]">
+              <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-accent)] shrink-0"></span>
+              {h}
+            </li>
+          ))}
+        </ul>
+
+        <!-- Venue badges -->
+        <div class="mt-8">
+          <p class="text-xs font-mono text-slate-500 uppercase tracking-widest mb-3">Presented at</p>
+          <div class="flex flex-wrap gap-2">
+            {invention.venues.map((v) => (
+              <span class="venue-badge inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono font-semibold bg-[var(--color-primary-dark)] text-[var(--color-accent)] border border-[var(--color-primary-light)]/30">
+                {v.name} <span class="text-slate-500">{v.year}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- GitHub link -->
+        <a href={invention.github} target="_blank" rel="noopener" class="inline-flex items-center gap-2 mt-6 text-sm text-[var(--color-accent)] hover:underline font-mono">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          Open-source ARP Library
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes arpRotate {
+    from { transform-origin: 150px 70px; transform: rotate(0deg); }
+    to { transform-origin: 150px 70px; transform: rotate(360deg); }
+  }
+  .arp-rotate {
+    animation: arpRotate 8s linear infinite;
+  }
+  .arp-neuron:nth-child(2) .arp-rotate {
+    animation-duration: 10s;
+    animation-direction: reverse;
+    transform-origin: 150px 130px;
+  }
+</style>
